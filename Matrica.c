@@ -4,12 +4,12 @@
 
 int main()
 {
-    int m, n, i, k, i2, k2, min, minM, minN, m4, n4;
+    int m, n, m2, n2, i, k, min, minM, minN;
     printf("m and n:\n");
-    scanf("%d%d", &m, &n);
-    m4 = m-1;
-    n4 = n-1;
-    int matr[m][n], strS[n], strE[n], matr4[m4][n4];
+    scanf("%d %d", &m, &n );
+    m2 = n2 = 0;
+    int matr[m][n], strS[n], strE[n], matr2[m2][n2];
+    char matrS2[1000];
 
     min = 9999999;
     minN = 9999999;
@@ -18,6 +18,7 @@ int main()
     srand( time(0) );
 
     printf("Matrica 1:\n");
+
 
     for (i = 0; i<m; i++){
         printf("\n");
@@ -53,48 +54,70 @@ int main()
      }
 
 
-    for(i=0; i<m; i++){
-        matr[i][minN]= 0;
-        matr[minM][i] = 0;
-    }
 
-     printf("\n\nMatrica 3:");
+      printf("\n\nMatrica 3:");
 
-     for (i = 0; i<m; i++){
-        printf("\n");
+
+
+      for (i = minM; i<(m-1); i++){
         for(k = 0; k<n; k++){
-            printf("%d ", matr[i][k]);
-        }
-     }
-
-     /* printf("\n\nMatrica 4:");
-
-
-
-
-
-      for (i = 0; i<m; i++){
-        for(k = 0; k<n; k++){
-            if(matr[i][k]!=0){
-                    for(i2 = 0; i2<m4; i2++){
-                        for(k2 = 0; k2<n4; k2++){
-                            matr4[i2][k2] = matr[i][k];
+            matr[i][k] = matr[i+1][k];
                         }
                     }
-            }
-        }
-    }
+
+        for (i = 0; i<(m-1); i++){
+        for(k = minN; k<(n-1); k++){
+            matr[i][k] = matr[i][k+1];
+                        }
+                    }
 
 
 
-          for (i = 0; i<m4; i++){
+          for (i = 0; i<(m-1); i++){
         printf("\n");
-        for(k = 0; k<n4; k++){
-            printf("%d ", matr4[i][k]);
+        for(k = 0; k<(n-1); k++){
+            printf("%d ", matr[i][k]);
         }
     }
 
-    */
+/*
+    printf("\n");
+    fgets(matrS2, 1000, stdin);
+
+    for(i = 0; i<1000; i++){
+        if (isdigit(matrS2[i])){
+                matr2[m2][n2] = matrS2[i] - '0';
+                printf("\n VVeli: %d\n", matr[m2][n2]);
+        }
+            else
+            switch(matrS2[i]){
+                case ' ':
+                    n2++;
+                    break;
+                case ',':
+                    m2++;
+                    n2 = 0;
+                    break;
+                case '.':
+                    i = 1001;
+                    break;
+                default:
+                    break;
+        }
+
+        }
+
+    printf("\nMatrica 4\n");
+
+    for (i = 0; i<m2; i++){
+        printf("\n");
+        for(k = 0; k<n2; k++){
+            printf("%d ", matr2[i][k]);
+        }
+     }
+*/
+
+
 
 
     return 0;
