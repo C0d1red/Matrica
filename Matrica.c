@@ -22,7 +22,7 @@ int main()
     printf("Matrica 1:\n");
 
 
-    for (i = 0; i<m; i++){      /* Zapolnenie i vivod matrici M x N, poisk min stroki i stolbca */
+    for (i = 0; i<m; i++){      /* Fill matriz and print matrix M x N, search min line and column */
         printf("\n");
         for(k = 0; k<n; k++){
             matr[i][k]=rand();
@@ -35,7 +35,7 @@ int main()
         }
     }
 
-    for(i = 0; i < n; i++){     /* Dva cikla dlya perevorota strok i ix perestavleniya */
+    for(i = 0; i < n; i++){     /* Two cycle for change lines and invert */
         strS[i] = matr[0][n-i-1];
         strE[i] = matr[m-1][n-i-1];
     }
@@ -61,13 +61,13 @@ int main()
 
 
 
-      for (i = minM; i<(m-1); i++){     /* Udalenie stroki s naim elementom */
+      for (i = minM; i<(m-1); i++){     /* Delete line with min element */
         for(k = 0; k<n; k++){
             matr[i][k] = matr[i+1][k];
         }
       }
 
-        for (i = 0; i<(m-1); i++){      /* Udalenie stolbca s naim elementom */
+        for (i = 0; i<(m-1); i++){      /* Delete column with min element */
             for(k = minN; k<(n-1); k++){
                 matr[i][k] = matr[i][k+1];
         }
@@ -85,7 +85,7 @@ int main()
 
     printf("\n");
 
-    for(i = 0; i<1000; i++){                /* Cikl sozdaniya proizvolnoy matrici */
+    for(i = 0; i<1000; i++){                /* Cycle for create your matrix */
 
             scanf("%c", &matrS2[i]);
 
