@@ -141,7 +141,7 @@ int main()
         }
     }
     else
-        printf("Error, impossible to add these matrix");
+        printf("\n\nError, impossible to add these matrix\n");
 
     return 0;
 }
